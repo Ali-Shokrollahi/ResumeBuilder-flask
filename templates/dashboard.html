@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block contant %}
+    <main>
+        <div class="container">
+            <section class="d-flex">
+                <nav class="dashboard__nav col-12 col-lg-3  ">
+                    <div class="user__image_wrapper mx-auto">
+                        {% if user.photo %}
+                            {% set p="users/"+user.photo %}
+                        {% elif user.gender=="زن" %}
+                            {% set p="images/woman.png" %}
+                        {% else %}
+                            {% set p="images/man.png" %}
+                        {% endif %}
+
+                        <img class="user__image w-100" src="{{ url_for('static', filename=p) }} ">
+
+
+
+
+                    </div>
+
+
+                    <ul class="dashboard__list t-center">
+                        <li class="dashboard__item"><a href="/dashboard/profile">پروفایل من</a></li>
+                        <li class="dashboard__item"><a href="/dashboard/experience">سابقه من</a></li>
+                        <li class="dashboard__item"><a href="/dashboard/education">تحصیلات من</a></li>
+                        <li class="dashboard__item"><a href="/dashboard/skill">مهارت های من</a></li>
+                        <li class="dashboard__item"><a href="/dashboard/social">نحوه ارتباط</a></li>
+                        <li class="dashboard__item"><a href="/dashboard/build">ساخت رزومه</a></li>
+                        <li class="dashboard__item"><a href="/logout">خروج</a></li>
+                    </ul>
+                </nav>
+
+                <article class="article col-12 col-lg-7">
+                    {% include page %}
+                </article>
+            </section>
+        </div>
+    </main>
+    <script src="{{ url_for('static',filename='js/Jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/persianDatepicker.min.js') }}"></script>
+
+    <script>
+        $("#date-picker, .date-picker").persianDatepicker();
+    </script>
+{% endblock %}
+
+
+
+</body>
+
+</html>

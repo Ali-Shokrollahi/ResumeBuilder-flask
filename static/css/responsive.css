@@ -1,0 +1,48 @@
+@media only screen and (max-width:992px) {
+    .menu__icon {
+        display: block !important;
+    }
+    .nav__list {
+        margin: 0;
+        position: fixed;
+        display: block !important;
+        left: -250px;
+        top: 0;
+        bottom: 0;
+        background-color: #FAFBFC;
+        box-shadow: 0 0 15px rgba(163, 171, 180, 0.6);
+
+        width: 250px;
+        transition: 0.5s;
+    }
+    .nav__item{
+        margin: 40px 20px;
+    }
+
+    .dashboard__form{
+        padding: 10px 0 !important;
+    }
+
+    .dashboard__nav{
+        margin-bottom: 30px;
+    }
+    .form__input{
+        margin-bottom: 10px;
+    }
+    .form__row{
+        margin-bottom: 25px !important;
+    }
+
+}
+
+@media only screen and (max-width:768px) {
+    header{
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width:576px) {
+nav{
+    padding: 5px 30px;
+}
+}

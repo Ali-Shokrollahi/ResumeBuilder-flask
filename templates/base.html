@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/persianDatepicker-default.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+              integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block nav %}
+    <nav class="d-flex">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/">خانه</a></li>
+            <li class="nav__item "><a href="">خدمات</a></li>
+            <li class="nav__item"><a href="">نحوه استفاده</a></li>
+            <li class="nav__item"><a href="">حمایت از ما</a></li>
+            {% if user %}
+                <li class="nav__item"><a href="/dashboard/profile" class="btn nav__btn"> سلام{{ " "+user.name }}</a></li>
+
+
+                {% else %}
+                <li class="nav__item"><a href="/login" class="btn nav__btn">
+
+
+                    ورود / ثبت نام
+
+                </a></li>
+            {% endif %}
+
+        </ul>
+        <a class="fa fa-bars menu__icon d-none"></a>
+
+        <div class="logo__wrapper">
+            <img class="w-100" src="{{ url_for('static', filename='images/logo.png') }}">
+        </div>
+    </nav>
+    {% endblock %}
+    {% block header %}
+    {% endblock %}
+</header>
+{% block contant %}
+{% endblock %}
+
+<script src="{{ url_for('static',filename='js/Jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+</body>
+</html>

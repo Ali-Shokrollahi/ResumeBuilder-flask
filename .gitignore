@@ -1,0 +1,14 @@
+Pipfile
+Pipfile.lock
+
+app.db
+
+venv
+
+.idea
+
+migrations
+
+__pycache__
+
+app.db

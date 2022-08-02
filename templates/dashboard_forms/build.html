@@ -1,0 +1,48 @@
+<div class="dashboard__form">
+    {% for message in get_flashed_messages() %}
+        <div class="b-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h2 class="form__title">ساخت رزومه</h2>
+
+    <p>به بخش ساخت رزومه خوش آمدید. در این بخش می توانید صفحه اختصاصی رزومه خود را بسازید و لینک آن را با دوستانتان
+        به اشتراک بگذارید.</p>
+    <p>
+        به خاطر داشته باشید که برای دریافت این صفحه باید یک نام کاربری برای خود در نظر گرفته باشید و رزومه خود را تا
+        حد قابل قبولی اضافه کرده باشید. </p>
+    <h3>میزان پیشرفت رزومه شما:</h3>
+
+    <div class="skill__line">
+        <div class="d-flex skill__online" style="width: {{ user.resumeproccess }}%;">
+            <div class="skill__value">
+
+            </div>
+
+            <span class="skill__circel">
+
+                                    </span>
+        </div>
+    </div>
+
+    {% if user.resumeproccess >=60 %}
+        <small style="color: #457b9d">شما امتیاز کافی را دارید.</small>
+        <form method="post" action="/dashboard/build">
+            <div class="build-btn-container">
+                <input type="submit" class="form__btn" value="ساخت رزومه">
+
+            </div>
+        </form>
+
+    {% else %}
+        <small style="color: red">شما امتیاز کافی را ندارید.</small>
+        <form method="post" action="/dashboard/build">
+
+        </form>
+
+
+    {% endif %}
+
+
+</div>

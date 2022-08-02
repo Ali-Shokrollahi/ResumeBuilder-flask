@@ -1,0 +1,242 @@
+body {
+    background-color: #FAFBFC;
+}
+
+hr {
+    width: 50%;
+}
+
+.invalid {
+    border: 1px solid red !important;
+}
+
+section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+
+}
+
+.dashboard__nav {
+
+    box-shadow: 0 0 15px rgba(163, 171, 180, 0.6);
+    padding: 20px;
+}
+
+.article {
+    box-shadow: 0 0 15px rgba(163, 171, 180, 0.6);
+}
+
+.user__image_wrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 50px;
+
+}
+
+
+
+.user__image {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+    box-shadow: 0 0 15px rgba(163, 171, 180, 0.6);
+
+}
+
+.dashboard__list {
+    padding: 0;
+}
+
+.dashboard__item {
+    font-size: 18px;
+    margin-bottom: 30px;
+    transition: 0.2s;
+}
+
+.dashboard__item a {
+    color: inherit;
+}
+
+.active {
+    background-color: #FF893A;
+    border-radius: 10px;
+    color: #FAFBFC !important;
+}
+
+.dashboard__form {
+    padding: 20px 30px;
+}
+
+.form__title {
+    color: #585665;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FF893A;
+    margin-bottom: 50px;
+}
+
+
+.form__row {
+    align-items: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+
+}
+
+.form__input {
+    display: flex;
+
+
+}
+
+.form__input input, textarea {
+    border: 1px solid #d4dee3;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    padding: 3px 5px;
+    width: 100%;
+
+}
+
+.form__input textarea {
+    height: 150px;
+}
+
+.form__input label {
+    margin-left: 5px;
+
+}
+
+.form__input input[type=submit] {
+    padding: 7px 4px;
+    background-color: #FF893A;
+    color: #FAFBFC;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.form__btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #FF893A;
+    color: #FAFBFC;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+.add-job {
+    display: none;
+}
+
+.add-job-button {
+    width: 30px;
+    height: 30px;
+    background-color: #457b9d;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.add-job-button span {
+    vertical-align: middle;
+
+    color: #FAFBFC;
+}
+
+.content-box {
+    max-height: 250px;
+    margin-bottom: 20px;
+    overflow: scroll;
+
+
+}
+
+.content-box__table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.content-box__table tr {
+    display: flex;
+    align-items: center;
+
+}
+
+tr:first-child {
+    background-color: transparent;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:nth-child(odd) {
+    background-color: #e9ecef;
+}
+
+tr:first-child {
+    background-color: transparent;
+    color: #457b9d;
+}
+
+th,
+td,
+tr {
+
+    text-align: center;
+}
+
+tr {
+    height: 45px;
+}
+
+.content-box__table th {
+    text-align: center;
+}
+
+.skill__line {
+    height: 3px;
+    border-radius: 10px;
+    background-color: rgba(66, 47, 189, 0.2);
+}
+
+
+.skill__value {
+    background-color: #FF893A;
+    width: 100%;
+    border: none;
+    height: 3px;
+}
+
+.skill__circel {
+    width: 12px;
+    height: 12px;
+    border: 3px solid #FF893A;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    margin-top: -3px;
+    box-shadow: 0 0 0 6px rgba(66, 47, 189, 0.2);
+}
+
+.build-btn-container{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.build-btn-container input{
+    padding: 10px 25px;
+    font-size: 18px;
+}
+
+#file{
+
+}

@@ -1,0 +1,116 @@
+<div class="dashboard__form">
+    <h2 class="form__title">پروفایل من</h2>
+
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form__row d-flex">
+            <div class="form__input col-3 col-sm-1 col-lg-1">
+                <label class="t-center" for="">نام :</label>
+            </div>
+
+            <div class="form__input col-9 col-sm-4 col-lg-4">
+
+
+                {{ form.name }}
+            </div>
+
+            <div class="form__input col-5 col-sm-2 col-lg-2">
+                <label for="">نام خانوادگی:</label>
+            </div>
+
+            <div class="form__input col-7 col-sm-4 col-lg-5">
+
+                {{ form.lastname }}
+            </div>
+
+        </div>
+
+        <div class="form__row d-flex">
+            <div class="form__input col-2 col-sm-1 col-lg-1">
+                <label for="">ایمیل:</label>
+            </div>
+            <div class="form__input col-10 col-sm-6 col-lg-5">
+
+                {{ form.email }}
+
+            </div>
+
+            <div class="form__input col-6 col-sm-5 col-lg-3">
+                <button class="form__btn ">فعال سازی</button>
+            </div>
+
+            <div class="form__input col-6 col-lg-3">
+                <label for="">جنسیت :</label>
+                {{ form.gender }}
+            </div>
+
+            <small class="c-blue">برای استفاده از امکانات باید ایمیل خود را تایید نمایید.</small>
+        </div>
+
+        <div class="form__row d-flex">
+            <div class="form__input col-5 col-sm-2 col-lg-2">
+                <label for="">شماره تماس :</label>
+            </div>
+            <div class="form__input col-7 col-sm-6 col-lg-3">
+
+                {{ form.phone }}
+
+            </div>
+            <div class="form__input col-sm-4 col-lg-3">
+                <button class="form__btn ">فعال سازی</button>
+            </div>
+
+            <div class="form__input col-sm-4 col-lg-1">
+               <label for="">شغل:</label>
+            </div>
+
+             <div class="form__input col-sm-4 col-lg-3">
+               {{ form.job }}
+            </div>
+            <small class="c-blue">برای استفاده از امکانات باید شماره تماس خود را تایید نمایید.</small>
+        </div>
+        <div class="form__row d-flex">
+            <div class="form__input col-12 col-sm-2">
+               <label for="">بیوگرافی:</label>
+            </div>
+            <div class="form__input col-12 col-sm-10">
+               {{ form.description }}
+            </div>
+        </div>
+        <div class="form__row d-flex">
+            <div class="form__input col-lg-2">
+                <label for=""> نام کاربری :</label>
+            </div>
+
+            <div class="form__input col-lg-4">
+                {{ form.username }}
+            </div>
+
+            <div class="form__input col-lg-2">
+                <label for=""> تاریخ تولد :</label>
+            </div>
+
+            <div class="form__input col-lg-4">
+                {{ form.age }}
+            </div>
+
+            {% for error in form.errors.username %}
+                <small>   {{ error }}</small>
+            {% endfor %}
+        </div>
+        <div class="form__row">
+
+            <div class="form__input col-4 col-md-3 mx-auto">
+                {{ form.submit }}
+            </div>
+        </div>
+    </form>
+  <form method="post" action="/changepic" enctype=multipart/form-data class="d-flex">
+        {{ picform.hidden_tag() }}
+        <button class="form__btn" onclick="showpic(this)">انتخاب عکس</button>
+        {{ picform.submit }}
+         {{ picform.file }}
+
+  </form>
+
+</div>

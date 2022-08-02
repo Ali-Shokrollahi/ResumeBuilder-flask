@@ -1,0 +1,26 @@
+<!-- Begin alerts -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <script>
+
+                Swal.fire({
+
+                    title: "{{ category.title() }}",
+                    // success , error , warning ,info
+
+                    text: "{{ message }}",
+                    // Custom message flashed from your flask routes
+
+                    icon: "{{ category }}" == "خطا" ? "error" : "{{ category }}",
+
+                    // success , error , warning ,info
+
+                })
+
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<!-- End alerts -->

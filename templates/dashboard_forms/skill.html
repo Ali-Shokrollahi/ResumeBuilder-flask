@@ -1,0 +1,64 @@
+<div class="dashboard__form">
+    <h2 class="form__title">مهارت های من</h2>
+    <div class="content-box  scroll">
+        <table class="content-box__table">
+            <tr>
+                <th class="col-6">عنوان مهارت</th>
+                <th class="col-6">میزان تسلط(درصد)</th>
+
+
+            </tr>
+            {% for skill in skills %}
+                <tr>
+                    <td class="col-6">{{ skill.name }}</td>
+                    <td class="col-6"> {{ skill.percent }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+    </div>
+    <form method="post">
+
+        {{ form.hidden_tag() }}
+        <div class="add-job">
+            <div class="form__row d-flex">
+                <div class="form__input col-md-2">
+                    <label for="">مهارت</label>
+                </div>
+                <div class="form__input col-md-4">
+
+                    {{ form.name }}
+
+                </div>
+
+                <div class="form__input col-md-2">
+                    <label for="">درصد</label>
+                </div>
+
+                <div class="form__input col-md-4">
+
+                    {{ form.percent }}
+                </div>
+
+
+            </div>
+            <div class="form__row">
+
+                <div class="form__input col-4 col-md-3 mx-auto">
+                    {{ form.submit }}
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form__row d-flex">
+            <div class="form__input col-12">
+                <div class="add-job-button" onclick="add_job(this)"><span class="fa fa-plus"></span></div>
+            </div>
+        </div>
+
+
+    </form>
+</div>

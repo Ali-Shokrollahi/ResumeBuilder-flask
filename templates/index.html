@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+
+
+{% block header %}
+    <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="header__image__wrapper">
+                        <img class="header__image" src="{{ url_for('static', filename='images/headerimg.png') }}">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h1 class="header__title mt-0"></h1>
+                    <h2 class="header__description"></h2>
+                    <a class="header__btn" href="">همین الان شروع کنید</a>
+                </div>
+            </div>
+
+        </div>
+{% endblock %}
+
+
+
+
+{% block contant %}
+
+    <img class="w-100 header__line" src="{{ url_for('static', filename='images/line.png') }}" alt="">
+    <main>
+        <section class="sevices">
+            <div class="container">
+
+                <div class="section__info mx-auto">
+                    <h2 class="section__title">خدمات ما</h2>
+                    <img class="w-100" src="{{ url_for('static', filename='images/lineTitle.png') }}" alt="">
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="service d-flex">
+                            <span class="fa fa-cloud"></span>
+                            <div class="service__info">
+                                <h3 class="mb-0  service__title">ساخت رزومه آنلاین</h3>
+                                <p class="mt-0 service__description">با رزومه باز می توانید به سادگی و در چند مرحله
+                                    رزومه
+                                    آنلاین خود را بسازید وآن را به اشتراک بگذارید.</p>
+                            </div>
+                        </div>
+                        <div class="service d-flex">
+                            <span class="fa fa-file-pdf-o"></span>
+                            <div class="service__info">
+                                <h3 class="mb-0  service__title">دریافت فایل pdf</h3>
+                                <p class="mt-0 service__description">رزومه باز همزمان با ساخت صفحه اختصاصی شما، این
+                                    امکان در
+                                    اختیارتون قرار میده تا بتونید از پروفایل خودتون فایل pdf دریافت کنید.</p>
+                            </div>
+                        </div>
+                        <div class="service d-flex">
+                            <span class="fa fa-cogs"></span>
+                            <div class="service__info">
+                                <h3 class="mb-0 service__title">قالب زیبا و حرفه ای</h3>
+                                <p class="mt-0 service__description"> رزومه باز با ایجاد قالب های متنوع و حرفه ای، با
+                                    امکان
+                                    شخصی سازی کمک می کنه تا شما وبازدیدکنندگان بهترین تجریه را داشته باشند.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 t-center">
+                        <img class=" services__image" src="../static/images/services.png">
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="usage">
+
+            <div class="container">
+
+            </div>
+        </section>
+
+    </main>
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block contant %}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <section class="register">
+
+        <div class="auth__box trnsform">
+            <div class="auth__box w-100 mt-0 trnsformback">
+             {% include "alert.html" %}
+
+                <h1 class="register__title">ثبت نام</h1>
+
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="auth__row d-flex">
+                        <div class="register__input">
+                            <i class="fa fa-user"></i>
+                            {{ form.name }}
+                        </div>
+                        <div class="register__input">
+                            <i class="fa fa-user"></i>
+                            {{ form.lastname }}
+                        </div>
+                    </div>
+
+                    <div class="auth__row">
+                        <div class="register__input w-100">
+                            <i class="fa fa-envelope"></i>
+                            {{ form.email }}
+                        </div>
+                         {% for error in  form.errors['email'] %}
+
+                        <small>
+                            {{ error }}
+                        </small>
+                              <br>
+                    {% endfor %}
+                    </div>
+
+
+                    <div class="auth__row d-flex">
+                        <div class="register__input">
+                            <i class="fa fa-lock"></i>
+                            {{ form.password }}
+                        </div>
+                        <div class="register__input">
+                            <i class="fa fa-lock"></i>
+                            {{ form.repassword }}
+                        </div>
+
+                        {% for error in  form.errors['password'] %}
+                        <small>
+                            {{ error }}
+                        </small>
+                            <br>
+                    {% endfor %}
+
+                    {% for error in  form.errors['repassword'] %}
+                        <small>
+                            {{ error }}
+                        </small>
+                        <br>
+                    {% endfor %}
+
+                    </div>
+
+
+
+
+
+                    <div class="auth__row t-center">
+                        {{ form.submit }}
+                    </div>
+
+
+                </form>
+                <a class="login-link" href="/login"><i class="fa fa-sign-in"></i>ورود به سایت </a>
+
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+{% endblock %}
+
+

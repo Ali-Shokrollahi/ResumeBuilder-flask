@@ -1,0 +1,107 @@
+body{
+    background-color: #FAFBFC;
+}
+
+small{
+    color: red;
+}
+
+.auth__box{
+    width: 40%;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FEFEFE;
+    border: 1px solid #FAFBFC;
+    box-shadow: 0 0 15px rgba(163, 171, 180, 0.7);
+    border-radius: 10px;
+    margin-top: 100px;
+
+}
+
+.auth__row{
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.trnsform {
+    transform: rotate(-12deg);
+}
+
+.trnsformback{
+    transform: rotate(12deg);
+    padding: 20px;
+}
+    
+.register__title{
+    color: #585665;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FF893A;
+    margin-bottom: 50px;
+}
+
+.register__input{
+    border: 1px solid #d4dee3;
+    display: flex;
+    align-items: center;
+    width: 48%;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.register__input i{
+    font-size: 18px;
+    color: #d4dee3;
+    margin-left: 5px;
+}
+
+.register__input input{
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+}
+
+.checkbox{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.submit{
+    background-color: #FF893A;
+    color: #FAFBFC;
+    border: none;
+    font-size: 18px;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+
+.register-link{
+    text-decoration: none;
+    font-size: 14px;
+    color: #457b9d;
+}
+
+.login-link{
+    text-decoration: none;
+    font-size: 14px;
+    color: #FF893A;
+}
+
+i{
+    vertical-align: middle;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+
+.login__title{
+    border-bottom: 2px solid #457b9d;
+    color: #585665;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+

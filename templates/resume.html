@@ -1,0 +1,253 @@
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="column1">
+        <div class="personal">
+            <h4 class="m-0">مشخصات فردی</h4>
+            <div class="info-box personal__content">
+                <div class="personal__profile">
+                    <div class="personal__image_wrapper mx-auto">
+                        {% if profile.photo %}
+                            {% set p="users/"+profile.photo %}
+                        {% elif profile.gender=="زن" %}
+                            {% set p="images/woman.png" %}
+                        {% else %}
+                            {% set p="images/man.png" %}
+                        {% endif %}
+
+                        <img class="personal__image w-100" src="{{ url_for('static', filename=p) }} ">
+                    </div>
+                    <div class="personal__info">
+                        <h3 class="personal__name mb-0">{{ profile.name }} {{ profile.lastname }}</h3>
+                        <h4 class="personal__job mt-0">{{ profile.job }}</h4>
+                    </div>
+
+                </div>
+                <hr class="personal__line">
+
+                <p class="scroll personal__decription">
+                    {{ profile.description }}
+                </p>
+
+            </div>
+        </div>
+        <div class="workdata">
+            <div class="d-flex workdata__wrapper">
+                <div class="mt-0 info-box workdata__box workdata__project">
+                    <h2 class="m-0 f-num">{{ workdata.projects_number }}+</h2>
+                    <p class="m-0">پروژه</p>
+                </div>
+                <div class="mt-0 info-box workdata__box workdata__customers">
+                    <h2 class="m-0 f-num">{{ workdata.customer_number }}+</h2>
+                    <p class="m-0">مشتری</p>
+                </div>
+                <div class="mt-0 info-box workdata__box workdata__experience">
+                    <h2 class="m-0 f-num"> {{ workdata.experience }} سال</h2>
+                    <p class="m-0">تجربه</p>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="addresses">
+            <div class="info-box">
+                <ul class="addresses_list scroll">
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-envelope address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+                           href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+                    </li>
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-phone address_icon"></span></div>
+                        <a class="address__link" href="tel:{{ profile.number }}">{{ profile.number }}</a>
+                    </li>
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-telegram address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+                           href="{{ social.telegram }}">{{ social.telegram|replace("https://t.me/","")
+                           |replace("/","") }}</a>
+                    </li>
+
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-instagram address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+
+                           href="https://www.instagram.com/{{ social.instagram }}">{{ social.instagram|replace("https://www.instagram.com/","")
+                           |replace("/","") }}</a>
+                    </li>
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-linkedin address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+                           href="{{ social.linkedin }}">{{ social.linkedin|replace("https://www.linkedin.com/in","")
+                           |replace("/","") }}</a>
+                    </li>
+
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-github address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+                           href="{{ social.github }}">{{ social.github|replace("https://github.com/","")
+                           |replace("/","") }}</a>
+                    </li>
+
+                    <li class="address">
+                        <div class="address_icon_wrapper"><span class="fa fa-pinterest address_icon"></span></div>
+                        <a class="address__link" target="_blank"
+                           href="{{ social.pinterest }}">{{ social.pinterest|replace("https://www.pinterest.com/","")
+                           |replace("/","") }}</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="column2">
+        <div class="experiences">
+            <h4 class="m-0">تجارب شغلی</h4>
+
+            <div class="info-box">
+                <ul class="experience__list scroll">
+                    {% for experience in experiences %}
+                        <li class="experience">
+
+                            <div class="experience__title d-flex">
+                                <h5 class="m-0">{{ experience.title }}</h5>
+                                <span class="experience__dash">-</span>
+                                <h5 class="m-0">{{ experience.company }}</h5>
+
+                                <div class="experience__time f-num">
+                                    {{ experience.duration }} سال
+                                </div>
+
+                            </div>
+                            <p class="experience__description">
+                                {{ experience.description }}
+                            </p>
+                        </li>
+                        <hr class="experiences__line">
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="educations">
+            <h4 class="m-0">تحصیلات</h4>
+
+            <div class="info-box">
+                <ul class="scroll education__list">
+                    {% for education in educations %}
+                        <li class="education">
+                            <div class="education__title d-flex">
+                                <h5 class="m-0">{{ education.title }}</h5>
+                                <span class="education__dash">-</span>
+                                <h5 class="m-0">{{ education.school }}</h5>
+
+                                <div class="education__time f-num">
+                                    {{ education.duration }} سال
+                                </div>
+                            </div>
+                            <p class="education__description">
+                                {{ education.description }}
+                            </p>
+                        </li>
+                        <hr class="education__line">
+                    {% endfor %}
+
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="column3">
+        <div class="skills">
+            <h4 class="m-0">مهارت نرم افزاری</h4>
+
+            <div class="info-box">
+                <ul class="skills__list">
+
+                    {% for skill in  skills %}
+                         <li class="skill">
+                        <h5 class="skill__text">{{ skill.name }}</h5>
+                        <div class="skill__line">
+                            <div class="d-flex skill__online" style="width: {{ skill.percent }}%;">
+                                <div class="skill__value">
+
+                                </div>
+
+                                <span class="skill__circel">
+
+                                    </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    {% endfor %}
+
+
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="portfolio">
+            <h4 class="m-0">گالری عکس</h4>
+            <div class="info-box">
+                <div class="owl-carousel owl-theme">
+
+                    <div class="portfolio__image__wrapper">
+                        <img class="portfolio__image w-100" src="images/resume.png">
+                    </div>
+
+                    <div class="portfolio__image__wrapper">
+                        <img class="portfolio__image w-100" src="images/typing.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="invite t-center">
+    <a href="/">همین الان رزومه خودت بساز!</a>
+</div>
+
+<script src="{{ url_for('static',filename='js/Jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,17 @@
+@font-face {
+     font-family: Gandom;
+     src: url('../fonts/Gandom.eot');
+     src: url('../fonts/Gandom.eot?#iefix') format('embedded-opentype'),
+          url('../fonts/Gandom.woff') format('woff'),
+          url('../fonts/Gandom.ttf') format('truetype');
+     font-weight: normal;
+}
+
+@font-face {
+     font-family: Gandom-num;
+     src: url('../fonts/Gandom-FD.eot');
+     src: url('../fonts/Gandom-FD.eot?#iefix') format('embedded-opentype'),
+          url('../fonts/Gandom-FD.woff') format('woff'),
+          url('../fonts/Gandom-FD.ttf') format('truetype');
+     font-weight: normal;
+}

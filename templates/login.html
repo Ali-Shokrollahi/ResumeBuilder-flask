@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block contant %}
+
+    <section>
+
+        <div class="auth__box trnsform">
+            <div class="auth__box w-100 mt-0 trnsformback">
+                <h1 class="login__title">ورود</h1>
+
+                <form method="post">
+                    {{ form.hidden_tag() }}
+
+
+                    <div class="auth__row">
+                        <div class="register__input w-100">
+                            <i class="fa fa-envelope"></i>
+                            {{ form.email }}
+                        </div>
+                        {% for error in  get_flashed_messages(category_filter=["email"]) %}
+
+                            <small>
+                                {{ error }}
+                            </small>
+                            <br>
+                        {% endfor %}
+                    </div>
+
+                    <div class="auth__row">
+                        <div class="register__input w-100">
+                            <i class="fa fa-lock"></i>
+                            {{ form.password }}
+                            <span onclick="showpass(this)"><i class="fa fa-eye-slash c-blue"></i></span>
+                        </div>
+                        {% for error in  get_flashed_messages(category_filter=["pass"]) %}
+                            <small>
+                                {{ error }}
+                            </small>
+                            <br>
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="auth__row">
+
+
+                        {{ form.checkauth }}
+
+                        <label>من را به خاطر بسپار</label>
+
+                    </div>
+
+                    <div class="auth__row t-center">
+                        {{ form.submit }}
+                    </div>
+
+
+                </form>
+
+                <a class="register-link" href="/register"><i class="fa fa-plus-circle"></i>عضویت در سایت </a>
+                <br>
+                <a class="register-link" href=""><i class="fa fa-unlock-alt"></i>رمز عبور خود را فراموش کرده ام </a>
+
+
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+{% endblock %}
+
+

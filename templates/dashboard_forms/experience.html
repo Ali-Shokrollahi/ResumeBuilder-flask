@@ -1,0 +1,129 @@
+<div class="dashboard__form">
+    <h2 class="form__title">تجربه شغلی من</h2>
+    <form method="post" action="/updateWorkData">
+
+        <div class="form__row d-flex">
+            {{ form1.hidden_tag() }}
+            <div class="form__input col-md-2">
+                <label for="">زمان سابقه:</label>
+            </div>
+
+            <div class="form__input col-md-1">
+
+                {{ form1.time }}
+            </div>
+
+            <div class="form__input col-md-2">
+                <label for="">تعداد پروژه:</label>
+            </div>
+
+            <div class="form__input col-md-1">
+
+                {{ form1.projects }}
+            </div>
+
+            <div class="form__input col-md-2">
+                <label for="">تعداد مشتری:</label>
+            </div>
+
+            <div class="form__input col-md-1">
+
+                {{ form1.customers }}
+            </div>
+            <div class="form__input col-3 col-md-3">
+                {{ form1.submit }}
+            </div>
+
+        </div>
+        <hr>
+
+
+    </form>
+    <div class="content-box  scroll">
+        <table class="content-box__table">
+            <tr>
+                <th class="col-6 col-sm-2">عنوان شغلی</th>
+                <th class="col-6 col-sm-2">نام شرکت</th>
+                <th class="d-none d-sm-block col-sm-8">توضیحات</th>
+
+            </tr>
+            {% for experience in experiences %}
+                <tr>
+                    <td class="col-6 col-sm-2">{{ experience.title }}</td>
+                    <td class="col-6 col-sm-2"> {{ experience.company }}</td>
+                    <td class="d-none d-sm-block col-sm-8">{{ experience.description|truncate(length=50,killwords=False, end='...') }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+
+    </div>
+<div class="form__row d-flex align-center">
+            <div class="form__input col-2">
+                <div class="add-job-button" onclick="add_job(this)"><span class="fa fa-plus"></span></div>
+            </div>
+
+        </div>
+
+    <form name="form2" action="/addExperience" method="post" class="form2">
+        {{ form2.hidden_tag() }}
+        <div class="add-job">
+            <div class="form__row d-flex">
+                <div class="form__input col-md-2">
+                    <label for="">عنوان شغلی:</label>
+                </div>
+                <div class="form__input col-md-4">
+
+                    {{ form2.title }}
+
+                </div>
+
+                <div class="form__input col-md-2">
+                    <label for="">نام شرکت:</label>
+                </div>
+
+                <div class="form__input col-md-4">
+
+                    {{ form2.company }}
+                </div>
+
+
+            </div>
+
+            <div class="form__row d-flex">
+                <div class="form__input col-md-2">
+                    <label for="">توضیحات :</label>
+                </div>
+                <div class="form__input col-md-10">
+
+                    {{ form2.description }}
+                </div>
+            </div>
+            <div class="form__row d-flex">
+                <div class="form__input col-md-3">
+                    <label for="">مدت فعالیت(سال):</label>
+                </div>
+                <div class="form__input col-md-2">
+
+                    {{ form2.duration }}
+                </div>
+            </div>
+            <div class="form__row">
+
+            <div class="form__input col-md-3 mx-auto">
+                {{ form2.submit }}
+            </div>
+        </div>
+
+
+        </div>
+
+
+
+    </form>
+    <script src="{{ url_for('static',filename='js/Jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/ajaxExperience.js') }}"></script>
+
+</div>

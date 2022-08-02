@@ -1,0 +1,88 @@
+<div class="dashboard__form">
+    <h2 class="form__title">تحصیلات من</h2>
+    <div class="content-box  scroll">
+        <table class="content-box__table">
+            <tr>
+                <th class="col-6 col-sm-2">مدرک</th>
+                <th class="col-6 col-sm-3">نام محل تحصیل</th>
+                <th class="d-none d-sm-block col-sm-7">توضیحات</th>
+
+            </tr>
+            {% for education in educations %}
+                <tr>
+                    <td class="col-6 col-sm-2">{{ education.title }}</td>
+                    <td class="col-6 col-sm-3"> {{ education.school }}</td>
+                    <td class="d-none d-sm-block col-sm-8">{{ education.description|truncate(length=50,killwords=False, end='...') }}</td>
+
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+    </div>
+    <div class="form__row d-flex">
+        <div class="form__input col-12">
+            <div class="add-job-button" onclick="add_job(this)"><span class="fa fa-plus"></span></div>
+        </div>
+    </div>
+    <form class="form" method="post">
+
+        {{ form.hidden_tag() }}
+        <div class="add-job">
+            <div class="form__row d-flex">
+                <div class="form__input col-sm-3 col-lg-3">
+                    <label for="">مدرک تحصیلی:</label>
+                </div>
+                <div class="form__input col-sm-9 col-lg-3">
+
+                    {{ form.title }}
+
+                </div>
+
+                <div class="form__input col-sm-3 col-lg-2">
+                    <label for="">نام محل:</label>
+                </div>
+
+                <div class="form__input col-sm-9 col-lg-4">
+
+                    {{ form.school }}
+                </div>
+
+
+            </div>
+
+            <div class="form__row d-flex">
+                <div class="form__input col-lg-2">
+                    <label for="">توضیحات :</label>
+                </div>
+                <div class="form__input col-lg-10">
+
+                    {{ form.description }}
+                </div>
+            </div>
+            <div class="form__row d-flex">
+                <div class="form__input col-md-3">
+                    <label for="">مدت فعالیت(سال):</label>
+                </div>
+                <div class="form__input col-md-2">
+
+                    {{ form.duration }}
+                </div>
+            </div>
+            <div class="form__row">
+
+                <div class="form__input col-4 col-md-3 mx-auto">
+                    {{ form.submit }}
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </form>
+
+    <script src="{{ url_for('static',filename='js/Jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/ajaxEducation.js') }}"></script>
+</div>
